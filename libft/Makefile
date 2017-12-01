@@ -72,11 +72,8 @@ SRC = ft_atoi.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
 	  ft_lstnew.c \
-<<<<<<< HEAD
 	  ft_strfjoin.c \
-=======
 	  ft_strfjoin.c
->>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
 
 OBJ = $(SRC:.c=.o)
 
