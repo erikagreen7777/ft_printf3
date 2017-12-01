@@ -1,54 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egreen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 06:10:55 by egreen            #+#    #+#             */
+/*   Created: 2017/09/27 12:01:13 by egreen            #+#    #+#             */
 <<<<<<< HEAD
-/*   Updated: 2017/11/17 12:18:47 by egreen           ###   ########.fr       */
+/*   Updated: 2017/11/17 12:25:44 by egreen           ###   ########.fr       */
 =======
-/*   Updated: 2017/10/06 09:11:51 by egreen           ###   ########.fr       */
+/*   Updated: 2017/10/05 08:09:42 by egreen           ###   ########.fr       */
 >>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	size_t		i;
+	size_t		j;
+	char		*new;
+
+	j = start;
+	if (!s)
+		return (NULL);
+	new = ft_strnew(len);
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		new[i] = s[j];
+		i++;
+		j++;
+	}
 <<<<<<< HEAD
-char		*ft_strdup(const char *s)
-{
-	int		i;
-	char	*dup;
-
-	i = 0;
-	dup = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!dup)
-		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	new[i] = '\0';
 =======
-char	*ft_strdup(const char *src)
-{
-	char	*dest;
-	int		i;
-
-	dest = (char *)malloc(sizeof(char) * ft_strlen(src) + 1);
-	i = 0;
-	if (dest == NULL)
-		return (NULL);
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
 >>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
+	return (new);
 }

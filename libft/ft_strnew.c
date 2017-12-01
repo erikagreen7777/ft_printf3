@@ -1,54 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egreen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 06:10:55 by egreen            #+#    #+#             */
+/*   Created: 2017/09/25 10:01:21 by egreen            #+#    #+#             */
 <<<<<<< HEAD
-/*   Updated: 2017/11/17 12:18:47 by egreen           ###   ########.fr       */
+/*   Updated: 2017/11/17 12:26:20 by egreen           ###   ########.fr       */
 =======
-/*   Updated: 2017/10/06 09:11:51 by egreen           ###   ########.fr       */
+/*   Updated: 2017/10/03 15:52:45 by egreen           ###   ########.fr       */
 >>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+char	*ft_strnew(size_t size)
+{
 <<<<<<< HEAD
-char		*ft_strdup(const char *s)
-{
-	int		i;
-	char	*dup;
+	char	*s;
 
-	i = 0;
-	dup = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!dup)
+	if ((s = malloc(size + 1)) == NULL)
 		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	while (size)
+		s[size--] = '\0';
+	*s = '\0';
+	return (s);
 =======
-char	*ft_strdup(const char *src)
-{
-	char	*dest;
-	int		i;
-
-	dest = (char *)malloc(sizeof(char) * ft_strlen(src) + 1);
-	i = 0;
-	if (dest == NULL)
-		return (NULL);
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return ((char *)ft_memalloc(size + 1));
 >>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
 }
