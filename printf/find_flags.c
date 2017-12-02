@@ -89,8 +89,8 @@ int			find_flags(t_spec *ts, char *format, int *x)
 			*x += width(ts, format + *x);
 		else if (ft_islgth(format[*x]))
 			*x += lgth(ts, format + *x);
-		else
-			return (2);
+// 		else
+// 			return (2);
 	}
 	return (0);
 }
