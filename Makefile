@@ -114,6 +114,4 @@ fclean: clean
 	$(RM) $(NAME)
 	@echo "\033[31mLibft: fcleaned..."
 
-re: 
-	fclean
-	all
+re: fclean all
