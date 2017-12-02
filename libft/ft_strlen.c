@@ -17,11 +17,6 @@ size_t		ft_strlen(const char *str)
 	int		i;
 
 	i = 0;
-<<<<<<< HEAD
-	if (!str)
-		return (0);
-=======
->>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
 	while (str[i])
 		i++;
 	return (i);
