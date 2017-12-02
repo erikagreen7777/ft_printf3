@@ -20,6 +20,8 @@ LIBFT = libft/ft_bzero.c \
 	   libft/ft_isalnum.c \
 	   libft/ft_isascii.c \
 	   libft/ft_isprint.c \
+	   libft/ft_fputstr.c \
+	   libft/ft_fputstr_fd.c \
 	   libft/ft_toupper.c \
 	   libft/ft_tolower.c \
 	   libft/ft_memset.c \
@@ -32,7 +34,6 @@ LIBFT = libft/ft_bzero.c \
 	   libft/ft_memdel.c \
 	   libft/ft_putchar.c \
 	   libft/ft_putstr.c \
-	   libft/ft_fputstr_fd.c \
 	   libft/ft_putendl.c \
 	   libft/ft_putnbr.c \
 	   libft/ft_putchar_fd.c \
