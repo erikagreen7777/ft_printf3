@@ -14,11 +14,8 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-<<<<<<< HEAD
 	if (!str)
 		return (0);
-=======
->>>>>>> 912280583a873f6858d24bb07e02d90a66fee452
 	while (*str != c)
 	{
 		if (*str == '\0')
