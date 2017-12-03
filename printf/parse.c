@@ -82,6 +82,6 @@ void		parse(t_print *ptr)
 		}
 		x++;
 	}
-	while (x <= start)
+	if (x <= start)
 		print_buffer(ptr, start, x);
 }
