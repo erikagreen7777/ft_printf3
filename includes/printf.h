@@ -23,6 +23,7 @@ typedef struct		s_print
 	int				fd;
 	int				ret;
 	int				strlen;
+	bool			wstr;
 	char			*format;
 	va_list			arg;
 }					t_print;
@@ -51,6 +52,7 @@ typedef struct		s_spec
 	int				width;
 	int				*ret;
 	int				*fd;
+
 	va_list			*arg;
 	t_raw			data;
 }					t_spec;
