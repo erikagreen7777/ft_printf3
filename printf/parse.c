@@ -61,12 +61,8 @@ static void	type_finder(t_print *ptr, int *xptr)
 
 static void	print_buffer(t_print *ptr, int start, int x)
 {
-	if (x <= start)
-	{
 		write(ptr->fd, ptr->format + start, x - start);
 		ptr->ret += x - start;
-	}
-
 }
 
 void		parse(t_print *ptr)
