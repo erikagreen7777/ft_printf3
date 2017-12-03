@@ -31,8 +31,9 @@ void		format_wstring(t_print *ptr, t_spec *ts)
 	{
 		if (ts->data.bigs[i] == 's')
 			break ;
-		write(*ts->fd, ts->data.bigs, ts->len);
+		ft_putchar(ts->data.bigs[i]);
+		// write(*ts->fd, ts->data.bigs, ts->len);
 		i++;
 	}
-	ts->data.bigs[ts->len] = '\0';
+	ts->data.bigs[i] = '\0';
 }
