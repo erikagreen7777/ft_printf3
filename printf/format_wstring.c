@@ -34,5 +34,5 @@ void		format_wstring(t_print *ptr, t_spec *ts)
 		write(*ts->fd, ts->data.bigs, ts->len);
 		i++;
 	}
-	ts->data.bigs[i] = '\0';
+	ts->data.bigs[ts->len] = '\0';
 }
