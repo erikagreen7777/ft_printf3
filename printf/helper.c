@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/printf.h"
 
 int		ft_isflag(char test)
 {
@@ -22,7 +22,7 @@ int		ft_isflag(char test)
 
 int		ft_islgth(char c)
 {
-	if (c == 'h' || c == 'l' || c == 'z' || c == 'j')
+	if (c == 'h' || c == 'l' || c == 'z' || c == 'j' || c == '*')
 		return (1);
 	return (0);
 }
