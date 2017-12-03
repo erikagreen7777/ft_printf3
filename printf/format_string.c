@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/printf.h"
 
 static void	print_width(t_spec *ts)
 {
@@ -50,6 +50,8 @@ static void	print_prec(t_spec *ts)
 
 void		format_string(t_print *ptr, t_spec *ts)
 {
+	if (ts->lgth[0] == '*')
+		ts->width = va_arg(ptr->arg, int);
 	ts->data.str = va_arg(ptr->arg, char*);
 	if (ts->data.str == NULL)
 		ts->len = 0;
