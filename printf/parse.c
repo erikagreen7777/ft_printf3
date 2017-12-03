@@ -12,57 +12,58 @@
 
 #include "../includes/libft.h"
 
-static void	constructor(t_print *ptr, t_spec *this)
+static void	constructor(t_print *ptr, t_spec *ts)
 {
-	this->left_align = false;
-	this->show_sign = false;
-	this->prepend_space = false;
-	this->prepend_zero = false;
-	this->aform = false;
-	this->width = 0;
-	this->prec = -1;
-	this->lgth[0] = '\0';
-	this->lgth[1] = '\0';
-	this->lgth[2] = '\0';
-	this->type = 0;
-	this->len = 0;
-	this->arg = &ptr->arg;
-	this->fd = &ptr->fd;
-	this->ret = &ptr->ret;
+	ts->left_align = false;
+	ts->show_sign = false;
+	ts->prepend_space = false;
+	ts->prepend_zero = false;
+	ts->aform = false;
+	ts->width = 0;
+	ts->prec = -1;
+	ts->lgth[0] = '\0';
+	ts->lgth[1] = '\0';
+	ts->lgth[2] = '\0';
+	ts->type = 0;
+	ts->len = 0;
+	ptr->wstr = false;
+	ts->arg = &ptr->arg;
+	ts->fd = &ptr->fd;
+	ts->ret = &ptr->ret;
 }
 
 static void	type_finder(t_print *ptr, int *xptr)
 {
-	t_spec	this;
+	t_spec	ts;
 
-	constructor(ptr, &this);
-	find_flags(&this, ptr->format, xptr);
-	if (this.type == 's')
-		format_string(ptr, &this);
-	else if (this.type == 'S' || (this.type == 'l'\
+	constructor(ptr, &ts);
+	find_flags(&ts, ptr->format, xptr);
+	if (ts.type == 's')
+		format_string(ptr, &ts);
+	else if (ts.type == 'S' || (ts.type == 'l'\
 				&& ptr->format[++*xptr] == 's'))
-		format_wstring(ptr, &this);
-	else if (this.type == 'd' || this.type == 'U' ||\
-			this.type == 'i' || this.type == 'D')
-		format_decimal(ptr, &this);
-	else if (this.type == 'c' || this.type == 'C')
-		format_char(ptr, &this);
-	else if (this.type == '%')
-		format_percent(&this);
-	else if (this.type == 'p')
-		format_pointer(ptr, &this);
-	else if (this.type == 'o')
-		format_octal(ptr, &this);
-	else if (this.type == 'x' || this.type == 'X')
-		format_hex(ptr, &this);
-	else if (this.type == 'u')
-		format_udecimal(ptr, &this);
+		format_wstring(ptr, &ts);
+	else if (ts.type == 'd' || ts.type == 'U' ||\
+			ts.type == 'i' || ts.type == 'D')
+		format_decimal(ptr, &ts);
+	else if (ts.type == 'c' || ts.type == 'C')
+		format_char(ptr, &ts);
+	else if (ts.type == '%')
+		format_percent(&ts);
+	else if (ts.type == 'p')
+		format_pointer(ptr, &ts);
+	else if (ts.type == 'o')
+		format_octal(ptr, &ts);
+	else if (ts.type == 'x' || ts.type == 'X')
+		format_hex(ptr, &ts);
+	else if (ts.type == 'u')
+		format_udecimal(ptr, &ts);
 }
 
 static void	print_buffer(t_print *ptr, int start, int x)
 {
-		write(ptr->fd, ptr->format + start, x - start);
-		ptr->ret += x - start;
+	write(ptr->fd, ptr->format + start, x - start);
+	ptr->ret += x - start;
 }
 
 void		parse(t_print *ptr)
@@ -82,5 +83,6 @@ void		parse(t_print *ptr)
 		}
 		x++;
 	}
-	print_buffer(ptr, start, x);
+	if (ptr->wstr == false)
+		print_buffer(ptr, start, x);
 }
