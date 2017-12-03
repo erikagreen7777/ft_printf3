@@ -32,4 +32,6 @@ void		format_wstring(t_print *ptr, t_spec *ts)
 		ft_putchar(ts->data.bigs[i]);
 		i++;
 	}
+	ptr->wstr = true;
 }
+
