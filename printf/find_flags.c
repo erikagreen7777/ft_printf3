@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/printf.h"
 
 static int	lgth(t_spec *ts, char *format)
 {
@@ -34,6 +34,8 @@ static int	lgth(t_spec *ts, char *format)
 		ft_strcpy(ts->lgth, "z\0");
 	else if (format[c] == 'j' && (c = c + 1))
 		ft_strcpy(ts->lgth, "j\0");
+	else if (format[c] == '*' && (c += 1))
+		ft_strcpy(ts->lgth, "*\0");
 	return (c - 1);
 }
 
