@@ -34,6 +34,8 @@ void	casting(t_print *ptr, t_spec *ts)
 {
 	if (ts->type == 'U' || ts->type == 'D')
 		ts->data.super = va_arg(ptr->arg, long int);
+	else if (ts->lgth[0] == '*')
+		ts->width = va_arg(ptr->arg, int);
 	else if (ts->lgth[0] == '\0')
 		ts->data.super = va_arg(ptr->arg, int);
 	else if (ts->lgth[0] == 'h' && ts->lgth[1] == 'h')
